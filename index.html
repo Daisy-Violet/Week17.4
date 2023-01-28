@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="end" onclick="getRandomIntInclusive();">Запуск кода</button>
+    <div>Сгенерированный массив:<div class="generated-result"></div></div>
+    <div>Минимальное число:<div class="min-result"></div></div>
+    <div>Максимальное число:<div class="max-result"></div></div>
+    <div>Среднее арифметическое:<div class="middle-result"></div></div>
+    <div>Сумма чисел:<div class="sum-result"></div></div>
+    <div>Произведение чисел:<div class="mult-result"></div></div>
+    <script>
+    let genResult = document.querySelector('.generated-result');
+    let minResult = document.querySelector('.min-result');
+    let maxResult = document.querySelector('.max-result');
+    let middleResult = document.querySelector('.middle-result');
+    let sumResult = document.querySelector('.sum-result');
+    let multResult = document.querySelector('.mult-result');
+
+    function getRandomIntInclusive() {
+        let min = -10;
+        let max = 10;
+        let arr = Array.from({length: 10}, () => Math.floor(Math.random() * (max - min + 1) + min));
+        genResult.innerHTML = arr;
+        minResult.innerHTML = Math.min(...arr);
+        maxResult.innerHTML = Math.max(...arr);
+        middleResult.innerHTML = arr.reduce((a, b) => (a + b)) / arr.length;
+        sumResult.innerHTML= arr.reduce((a,b)=>a+b);
+        multResult.innerHTML = arr.reduce((a,b) => a * b);
+};
+    </script>
+</body>
+</html>
